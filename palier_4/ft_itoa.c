@@ -6,18 +6,19 @@
 /*   By: maginist <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 11:37:56 by maginist          #+#    #+#             */
-/*   Updated: 2019/03/19 18:16:39 by maginist         ###   ########.fr       */
+/*   Updated: 2019/03/26 14:41:34 by maginist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <stdio.h>
 
 static int	ft_size(int n)
 {
 	int		i;
 
 	i = 0;
-	if (n == 0 || n < 0)
+	if (n <= 0)
 		i = 1;
 	while (n != 0)
 	{
@@ -52,4 +53,14 @@ char		*ft_itoa(int n)
 		i--;
 	}
 	return (str);
+}
+
+int	main(int ac, char **av)
+{
+	char *str;
+	int	nbr;
+
+	nbr = atoi(av[1]);
+	str = ft_itoa(nbr);
+	printf("str = %s\n", str);
 }
