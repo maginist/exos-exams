@@ -1,17 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fprime.c                                           :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maginist <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/01 12:15:38 by maginist          #+#    #+#             */
-/*   Updated: 2019/04/01 13:42:47 by maginist         ###   ########.fr       */
+/*   Created: 2019/04/15 17:20:50 by maginist          #+#    #+#             */
+/*   Updated: 2019/04/15 17:28:30 by maginist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <stdio.h>
+
+void	use_prime(int p, int nb)
+{
+	while (p <= nb)
+	{
+		if (nb % p == 0)
+		{
+			printf("%d", p);
+			if (p == nb)
+			{
+				printf("\n");
+				return ;
+			}
+			printf("*");
+			nb = nb / p;
+			p = 1;
+		}
+		p++;
+	}
+}
 
 int	main(int ac, char **av)
 {
@@ -30,28 +50,13 @@ int	main(int ac, char **av)
 		printf("1\n");
 		return (0);
 	}
+	if (nb < 1)
+		return (0);
 	if (nb == 0)
 	{
 		printf("0\n");
 		return (0);
 	}
-	if (nb < 1)
-		return (0);
-	while (p <= nb)
-	{
-		if (nb % p == 0)
-		{
-			printf("%d", p);
-			if (p == nb)
-			{
-				printf("\n");
-				return (0);
-			}
-			printf("*");
-			nb = nb / p;
-			p = 1;
-		}
-		p++;
-	}
+	use_prime(p, nb);
 	return (0);
 }
